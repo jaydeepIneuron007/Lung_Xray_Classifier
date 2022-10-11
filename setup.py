@@ -5,10 +5,10 @@ with open("README.md", "r", encoding="utf-8") as f:
 
 __version__ = "0.0.0"
 
-REPO_NAME = "FSDS_NOV_deepCNNClassifier"
-AUTHOR_USER_NAME = "c17hawke"
-SRC_REPO = "deepClassifier"
-AUTHOR_EMAIL = "sunny.c17hawke@gmail.com"
+REPO_NAME = "Lung_Xray_Classifeir"
+AUTHOR_USER_NAME = "Ineuron Intelligence"
+SRC_REPO = "xray_classifier"
+AUTHOR_EMAIL = "jaydeep@ineuron.ai"
 
 setuptools.setup(
     name=SRC_REPO,

@@ -1,5 +1,6 @@
-tensorflow
-dvc
+
+torch-summary
+opencv-python
 pandas
 notebook
 numpy

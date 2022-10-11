@@ -5,4 +5,5 @@ echo [$(date)]: "activating the environment"
 source activate ./env
 echo [$(date)]: "installing the dev requirements" 
 pip install -r requirements_dev.txt
+conda install pytorch torchvision torchaudio cpuonly -c pytorch
 echo [$(date)]: "END" 
