@@ -15,4 +15,4 @@ logging.basicConfig(
         logging.StreamHandler(sys.stdout),
     ])
 
-logger = logging.getLogger("deepClassifierLogger")
+logger = logging.getLogger("XrayClassifier")

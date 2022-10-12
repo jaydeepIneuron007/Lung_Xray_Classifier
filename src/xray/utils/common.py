@@ -1,7 +1,7 @@
 import os
 from box.exceptions import BoxValueError
 import yaml
-from deepClassifier import logger
+from xray import logger
 import json
 import joblib
 from ensure import ensure_annotations

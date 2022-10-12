@@ -7,7 +7,7 @@ __version__ = "0.0.0"
 
 REPO_NAME = "Lung_Xray_Classifeir"
 AUTHOR_USER_NAME = "Ineuron Intelligence"
-SRC_REPO = "xray_classifier"
+SRC_REPO = "xray"
 AUTHOR_EMAIL = "jaydeep@ineuron.ai"
 
 setuptools.setup(
