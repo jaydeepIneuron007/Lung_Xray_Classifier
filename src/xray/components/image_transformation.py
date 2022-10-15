@@ -38,8 +38,8 @@ class TransformData:
         
     def data_loader(self):
         data_path = self.config.ingested_data
-        train_transform = self.transforming_training_data
-        test_transform = self.transforming_testing_data
+        train_transform = self.transforming_training_data()
+        test_transform = self.transforming_testing_data()
         os.makedirs(os.path.join(data_path, 'train'),exist_ok=True)
         os.makedirs(os.path.join(data_path, 'test'),exist_ok=True)
 
@@ -59,7 +59,7 @@ class TransformData:
         
     def run_transformation_data(self):
 #         self.get_file_names()
-        self.transforming_training_data()
-        self.transforming_testing_data()
+        # self.transforming_training_data()
+        # self.transforming_testing_data()
         train_loader,test_loader = self.data_loader()
         return train_loader,test_loader

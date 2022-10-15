@@ -15,6 +15,3 @@ data_transformation:
   ingested_data: artifacts/data_ingestion
   transform_train_data: train
   transform_test_data: test
-  class_name:
-    - NORMAL
-    - PNEUMONIA
