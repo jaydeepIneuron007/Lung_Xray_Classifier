@@ -5,4 +5,16 @@ data_ingestion:
   root_dir: artifacts/data_ingestion
   source_URL: https://raw.githubusercontent.com/jaydeepIneuron007/Dataset/main/chest_xray.zip
   local_data_file: artifacts/data_ingestion/chest_xray.zip
-  unzip_dir: artifacts/data_ingestion
+  unzip_dir: artifacts/data_ingestion/
+  train_path: train
+  test_path: test
+
+data_transformation:
+  unzip_dir: artifacts/data_ingestion/
+  root_dir: artifacts/transform_data
+  ingested_data: artifacts/data_ingestion
+  transform_train_data: train
+  transform_test_data: test
+  class_name:
+    - NORMAL
+    - PNEUMONIA

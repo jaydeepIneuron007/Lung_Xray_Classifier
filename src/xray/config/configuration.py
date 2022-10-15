@@ -1,7 +1,9 @@
 from xray.constants import CONFIG_FILE_PATH,PARAMS_FILE_PATH
 from xray.utils import read_yaml, create_directories
-from xray.entity import (
+from xray.entity.config_entity import (
     DataIngestionConfig,
+    DataIngestionArtifacts,
+    TransformDataConfig,
 )
 
 from pathlib import Path
@@ -32,4 +34,25 @@ class ConfigurationManager:
         )
 
         return data_ingestion_config
+    
+    def get_transform_data_config(self) -> TransformDataConfig:
+        config = self.config.data_transformation
+        
+        create_directories([config.root_dir])
+        
+        transform_data_config = TransformDataConfig(
+            root_dir = Path(config.root_dir),
+            unzip_dir = Path(config.unzip_dir),
+            ingested_data = Path(config.ingested_data),
+            transform_train_path = Path(config.transform_train_data),
+            transform_test_path = Path(config.transform_test_data),
+            params_brightness = self.params.BRIGHTNESS,
+            params_contrast = self.params.CONTRAST,
+            params_saturation = self.params.SATURATION,
+            params_hue = self.params.HUE,
+            params_batch_size = self.params.BATCH_SIZE,
+            params_shuffle = self.params.SHUFFLE,
+            params_pin_memory = self.params.PIN_MEMORY,
+                                                    )
+        return transform_data_config
         
