@@ -1,6 +1,7 @@
 import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader
+from src.xray.entity.config_entity import TrainingConfig
 import torch.nn.functional as F
 from torchvision import datasets, transforms, models
 from torch.optim.lr_scheduler import StepLR
@@ -21,7 +22,8 @@ from tqdm import tqdm
 
 
 class ModelTrainer:
-    def __init__(self, epoch, model, train_loader, test_loader, optimizer, device):
+    def __init__(self, epoch, model, train_loader, test_loader, optimizer, device,config=TrainingConfig):
+        self.config = config
         self.epoch = epoch
         self.model = model
         self.train_loader = train_loader
@@ -99,3 +101,7 @@ class ModelTrainer:
             scheduler.step()
             print('current Learning Rate: ', self.optimizer.state_dict()["param_groups"][0]["lr"])
             self.test()
+        #print(model.state_dict())
+
+        torch.save(model.state_dict(),self.config.trained_model_path)
+    

@@ -8,7 +8,7 @@ def main():
     config = ConfigurationManager()
     data_ingestion_config = config.get_data_ingestion_config()
     data_ingestion = DataIngestion(config=data_ingestion_config)
-    artifact=data_ingestion.run_data_ingestion()
+    data_ingestion.run_data_ingestion()
 
 if __name__ == '__main__':
     try:

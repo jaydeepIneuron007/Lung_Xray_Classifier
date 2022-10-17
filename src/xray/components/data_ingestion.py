@@ -43,7 +43,8 @@ class DataIngestion:
                 self._preprocess(zf, f, self.config.unzip_dir)
     
     def train_test_split(self):
-        """This function would split the raw data into train and test folder
+        """
+        This function would split the raw data into train and test folder
         """
         try:
             # 1. make train and test folder 

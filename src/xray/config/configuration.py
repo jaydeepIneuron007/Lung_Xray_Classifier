@@ -4,6 +4,7 @@ from xray.entity.config_entity import (
     DataIngestionConfig,
     DataIngestionArtifacts,
     TransformDataConfig,
+    TrainingConfig,
 )
 
 from pathlib import Path
@@ -56,3 +57,20 @@ class ConfigurationManager:
                                                     )
         return transform_data_config
         
+    def get_training_config(self) -> TrainingConfig:
+        training = self.config.training
+        params = self.params
+        training_data = os.path.join(self.config.data_ingestion.unzip_dir)
+        create_directories([
+            Path(training.root_dir)
+        ])
+
+        training_config = TrainingConfig(
+            root_dir=Path(training.root_dir),
+            trained_model_path=Path(training.trained_model_path),
+            training_data=Path(training_data),
+            params_epochs=params.EPOCH,
+            
+        )
+
+        return training_config

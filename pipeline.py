@@ -16,6 +16,7 @@ from torchsummary import summary
 config = ConfigurationManager()
 data_ingestion_config = config.get_data_ingestion_config()
 transform_data_config = config.get_transform_data_config()
+training_data_config = config.get_training_config()
 
 #ingestion
 data_ingestion_comp = DataIngestion(data_ingestion_config)
@@ -37,8 +38,6 @@ summary(model, input_size=(3, 224, 224))
 optimizer = torch.optim.SGD(model.parameters(), lr=0.01, momentum=0.8)
 # scheduler = StepLR(optimizer, step_size=6, gamma=0.5)
 
-
-
-model_trainer_comp=ModelTrainer(epoch=10, model=model, train_loader=train_loader, test_loader=test_loader, optimizer=optimizer, device=device)
+model_trainer_comp=ModelTrainer(epoch=2, model=model, train_loader=train_loader,
+     test_loader=test_loader, optimizer=optimizer, device=device, config= training_data_config )
 model_trainer_comp.initiate_training()
-

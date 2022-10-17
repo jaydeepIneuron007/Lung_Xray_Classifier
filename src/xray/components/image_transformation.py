@@ -1,11 +1,9 @@
 import os 
-import urllib.request as request
-from zipfile import ZipFile
 from xray.entity.config_entity import TransformDataConfig
 from xray import logger
 from xray.utils import get_size
-from tqdm import tqdm 
-from pathlib import Path
+#from tqdm import tqdm 
+#from pathlib import Path
 from torchvision import datasets, transforms
 from torch.utils.data import DataLoader
 

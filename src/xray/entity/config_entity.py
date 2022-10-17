@@ -30,3 +30,10 @@ class TransformDataConfig:
     params_batch_size: float
     params_shuffle: float
     params_pin_memory: bool
+
+@dataclass(frozen=True)
+class TrainingConfig:
+    root_dir: Path
+    trained_model_path: Path
+    training_data: Path
+    params_epochs: int
