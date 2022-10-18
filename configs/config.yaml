@@ -18,4 +18,8 @@ data_transformation:
 
 training:
   root_dir: artifacts/training
-  trained_model_path: artifacts/training/model.pth
+  trained_model_path: artifacts/training/model.pt
+
+
+evaluation:
+  ingested_data: artifacts/data_ingestion

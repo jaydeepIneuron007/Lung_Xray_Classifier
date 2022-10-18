@@ -104,4 +104,4 @@ class ModelTrainer:
         #print(model.state_dict())
 
         torch.save(model.state_dict(),self.config.trained_model_path)
-    
+        

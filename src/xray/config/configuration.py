@@ -5,6 +5,7 @@ from xray.entity.config_entity import (
     DataIngestionArtifacts,
     TransformDataConfig,
     TrainingConfig,
+    EvaluationConfig,
 )
 
 from pathlib import Path
@@ -74,3 +75,15 @@ class ConfigurationManager:
         )
 
         return training_config
+
+    def get_evaluation_config(self) -> EvaluationConfig:
+        evaluation = self.config.evaluation
+        
+        eval_config = EvaluationConfig(
+            path_of_model=self.config.training.trained_model_path,
+            ingested_data = Path(evaluation.ingested_data),
+            training_data=self.config.data_ingestion.unzip_dir,
+            params_batch_size = self.params.BATCH_SIZE,
+            params_validation_split=self.params.VALIDATION_SPLIT
+        )
+        return eval_config

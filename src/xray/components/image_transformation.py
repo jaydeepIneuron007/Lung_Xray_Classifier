@@ -1,5 +1,6 @@
 import os 
 from xray.entity.config_entity import TransformDataConfig
+from src.xray.config.configuration import ConfigurationManager
 from xray import logger
 from xray.utils import get_size
 #from tqdm import tqdm 
@@ -8,8 +9,8 @@ from torchvision import datasets, transforms
 from torch.utils.data import DataLoader
 
 class TransformData:
-    def __init__(self, config: TransformDataConfig):
-        self.config = config
+    def __init__(self):
+        self.config = ConfigurationManager().get_transform_data_config()
     
     def transforming_training_data(self):
         train_transform = transforms.Compose([

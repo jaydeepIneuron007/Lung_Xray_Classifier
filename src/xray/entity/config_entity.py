@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from pathlib import Path
 
-@dataclass(frozen=True)
+@dataclass()
 class DataIngestionConfig:
     root_dir: Path
     source_URL: str
@@ -11,12 +11,12 @@ class DataIngestionConfig:
     test_path: Path
     params_test_ratio: float
 
-@dataclass(frozen=True)
+@dataclass()
 class DataIngestionArtifacts:
     ingested_train_dir : Path
     ingested_test_dir: Path
 
-@dataclass(frozen=True)
+@dataclass()
 class TransformDataConfig:
     root_dir: Path
     unzip_dir: Path
@@ -31,9 +31,18 @@ class TransformDataConfig:
     params_shuffle: float
     params_pin_memory: bool
 
-@dataclass(frozen=True)
+@dataclass()
 class TrainingConfig:
     root_dir: Path
     trained_model_path: Path
     training_data: Path
     params_epochs: int
+
+@dataclass()
+class EvaluationConfig:
+    ingested_data: Path
+    path_of_model: Path
+    training_data: Path
+    params_batch_size: int
+    params_validation_split: float
+    # shuffle: True
