@@ -22,6 +22,10 @@ class Evaluation:
         # self.optimizer = optimizer
         self.device = device
         self.TransformData  = TransformData()
+        self.test_loss = 0
+        self.test_accuracy = 0
+        self.total = 0
+        self.total_batch = 0
 
 
     def configuration(self):
@@ -65,10 +69,14 @@ class Evaluation:
 
                     print(f"Actual_Labels : {labels}     Predictions : {predictions}     labels : {loss.item():.4f}", )
 
-                    # self.test_loss += loss.item()
-                    # self.test_accuracy += (predictions == labels).sum().item()
-                    # self.total_batch += 1
-                    # self.total += labels.size(0)
+                    self.test_loss += loss.item()
+                    self.test_accuracy += (predictions == labels).sum().item()
+                    self.total_batch += 1
+                    self.total += labels.size(0)
+
+                    print(f"Model  -->   Loss : {self.test_loss / self.total_batch} Accuracy : {(self.test_accuracy / self.total) * 100} %")
+            
+
         except Exception as e:
             raise e
 
